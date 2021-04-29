@@ -1,0 +1,2 @@
+1. Get cluster issuers by running this command:
+    kubectl get clusterissuers

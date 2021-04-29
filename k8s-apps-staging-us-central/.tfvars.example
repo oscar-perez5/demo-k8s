@@ -1,0 +1,3 @@
+domain="example.com."
+service_account_secret="SERVICE_ACCOUNT_SECRET"
+service_project_id="SERVICE_PROJECT_ID"

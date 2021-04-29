@@ -1,0 +1,11 @@
+addHeaders:
+  keep-alive: "10"
+  ssl-protocols: "TLSv1.3"
+  use-gzip: "true"
+  enable-brotli: "true"
+  ssl-redirect: "true"
+publishService:
+  enabled: true
+service:
+  loadBalancerSourceRanges:
+    - 0.0.0.0/0

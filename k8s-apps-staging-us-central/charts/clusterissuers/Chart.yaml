@@ -1,0 +1,6 @@
+apiVersion: v2
+name: clusterissuers
+description: A Helm chart for clusterissuers from cert-manager
+type: application
+version: 0.1.0
+appVersion: "v1.3.1"
