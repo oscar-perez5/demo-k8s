@@ -58,3 +58,42 @@ resource "helm_release" "wordpress" {
     value = data.terraform_remote_state.k8s_apps.outputs.cluster_issuer_name
   }
 }
+
+
+resource "helm_release" "wordpress-2" {
+  name             = "wordpress-2"
+  namespace        = "wordpress"
+  create_namespace = true
+  repository       = "https://charts.bitnami.com/bitnami"
+  chart            = "wordpress"
+  version          = "10.10.8"
+
+  values = [
+    file("wordpress-values.yaml")
+  ]
+
+  set_sensitive {
+    name  = "wordpressPassword"
+    value = random_password.wordpress.result
+  }
+
+  set_sensitive {
+    name  = "mariadb.auth.password"
+    value = random_password.mariadb.result
+  }
+
+  set_sensitive {
+    name  = "mariadb.auth.rootPassword"
+    value = random_password.mariadb.result
+  }
+
+  set {
+    name  = "ingress.hostname"
+    value = var.hostname-2
+  }
+
+  set {
+    name  = "ingress.annotations.cert-manager\\.io/cluster-issuer"
+    value = data.terraform_remote_state.k8s_apps.outputs.cluster_issuer_name
+  }
+}
