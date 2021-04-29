@@ -9,6 +9,21 @@ data "terraform_remote_state" "vpc" {
   }
 }
 
+module "project_services" {
+  source  = "terraform-google-modules/project-factory/google//modules/project_services"
+  version = "10.3.2"
+
+  project_id = var.network_project_id
+  activate_apis = [
+    "compute.googleapis.com",
+    "container.googleapis.com",
+    "containerregistry.googleapis.com",
+  ]
+
+  disable_services_on_destroy = false
+  disable_dependent_services  = false
+}
+
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
   version = "14.2.0"
@@ -36,5 +51,9 @@ module "gke" {
       min_count    = 1
       max_count    = 1
     },
+  ]
+
+  depends_on = [
+    module.project_services
   ]
 }

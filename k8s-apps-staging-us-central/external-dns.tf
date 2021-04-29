@@ -43,4 +43,8 @@ resource "helm_release" "external_dns" {
     name  = "policy"
     value = "sync"
   }
+
+  depends_on = [
+    module.cloud_dns_public_zone
+  ]
 }

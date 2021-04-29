@@ -1,3 +1,16 @@
+module "project_services" {
+  source  = "terraform-google-modules/project-factory/google//modules/project_services"
+  version = "10.3.2"
+
+  project_id = var.network_project_id
+  activate_apis = [
+    "compute.googleapis.com",
+  ]
+
+  disable_services_on_destroy = false
+  disable_dependent_services  = false
+}
+
 module "vpc" {
   source  = "terraform-google-modules/network/google"
   version = "~> 3.0"
@@ -27,6 +40,10 @@ module "vpc" {
       },
     ]
   }
+
+  depends_on = [
+    module.project_services
+  ]
 }
 
 module "nat" {
