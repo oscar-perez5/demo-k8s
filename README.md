@@ -2,16 +2,29 @@
 ### Description
 This project uses Google Cloud, Terraform and Helm to automate the creation of a WordPress Blog with SSL enabled.
 
-### Change Terraform Organization with: `find . -name "*.tf" -exec sed -i "s/oscar-demo/YOUR_ORGANIZATION/g" '{}' \;`
+Change Terraform Organization with: `find . -name "*.tf" -exec sed -i "s/oscar-demo/YOUR_ORGANIZATION/g" '{}' \;`
 
 ### Folder structure
 ```
-├── k8s-apps-staging-us-central
+├── 01-networking
+│   ├── backend.tf
+│   ├── main.tf
+│   ├── outputs.tf
+│   ├── provider.tf
+│   ├── README.md
+│   └── variables.tf
+├── 02-kubernetes-cluster
+│   ├── backend.tf
+│   ├── main.tf
+│   ├── outputs.tf
+│   ├── provider.tf
+│   ├── README.md
+│   └── variables.tf
+├── 03-base-apps-setup
 │   ├── backend.tf
 │   ├── cert-manager.tf
 │   ├── charts
 │   │   └── clusterissuers
-│   │       ├── charts
 │   │       ├── Chart.yaml
 │   │       ├── templates
 │   │       │   ├── clusterissuers.yaml
@@ -27,27 +40,13 @@ This project uses Google Cloud, Terraform and Helm to automate the creation of a
 │   ├── provider.tf
 │   ├── README.md
 │   └── variables.tf
-├── kubernetes-staging-us-central
+├── 04-wordpress
 │   ├── backend.tf
 │   ├── main.tf
 │   ├── outputs.tf
 │   ├── provider.tf
 │   ├── README.md
-│   └── variables.tf
-├── networking-staging-us-central
-│   ├── backend.tf
-│   ├── main.tf
-│   ├── outputs.tf
-│   ├── provider.tf
-│   ├── README.md
-│   └── variables.tf
-├── README.md
-└── wordpress-staging-us-central
-    ├── backend.tf
-    ├── main.tf
-    ├── outputs.tf
-    ├── provider.tf
-    ├── README.md
-    ├── variables.tf
-    └── wordpress-values.yaml
+│   ├── variables.tf
+│   └── wordpress-values.yaml
+└── README.md
 ```

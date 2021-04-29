@@ -3,7 +3,7 @@ terraform {
     organization = "oscar-demo"
 
     workspaces {
-      name = "k8s-apps-staging-us-central"
+      name = "base-apps-staging-us-central"
     }
   }
 }

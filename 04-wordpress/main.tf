@@ -4,7 +4,7 @@ data "terraform_remote_state" "k8s_apps" {
   config = {
     organization = "oscar-demo"
     workspaces = {
-      name = "k8s-apps-staging-us-central"
+      name = "base-apps-staging-us-central"
     }
   }
 }

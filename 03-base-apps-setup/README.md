@@ -1,4 +1,4 @@
-## k8s-apps-staging-us-central
+## base-apps-staging-us-central
 #### Define the following environment variable in Terraform Cloud
 - GOOGLE_CREDENTIALS (Service account JSON file without spaces and marking it as sensitive)
 

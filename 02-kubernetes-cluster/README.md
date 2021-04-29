@@ -1,4 +1,5 @@
 ## kubernetes-staging-us-central
+#### Assign proper roles to Terraform service account - https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/latest#configure-a-service-account
 #### Define the following environment variable in Terraform Cloud
 - GOOGLE_CREDENTIALS (Service account JSON file without spaces and marking it as sensitive)
 
